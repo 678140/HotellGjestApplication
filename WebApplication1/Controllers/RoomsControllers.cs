@@ -2,16 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using HotelDBLibrary;
 using HotelDBLibrary.Models;
 
 public class RoomsController : Controller
 
 {
     private readonly HotelDbContext _context;
+    private readonly GuestManager _guestManager;  // Declare the GuestManage
 
-    public RoomsController(HotelDbContext context)
+    public RoomsController(HotelDbContext context, GuestManager guestManager)
     {
         _context = context;
+        _guestManager = guestManager;
     }
 
     // GET: Rooms
@@ -65,11 +68,19 @@ public class RoomsController : Controller
                 return NotFound();
             }
 
+            // Set the guest details for the reservation
+            var guestTlf = HttpContext.Session.GetString("GuestTlf");
+            var guest = await _guestManager.GetGuestByTlfAsync(guestTlf);
+        
+            if (guest == null)
+            {
+                return NotFound();
+            }
+
             reservation.RoomId = room.Id;
+            reservation.GuestId = guest.Tlf;  // Link the reservation to the correct guest
 
-            // You might want to add additional logic here to check availability, etc.
-
-            // Add the reservation to the context and save changes
+            // Save the reservation
             _context.Add(reservation);
             await _context.SaveChangesAsync();
 
