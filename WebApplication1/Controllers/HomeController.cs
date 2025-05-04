@@ -1,22 +1,31 @@
-using System.Diagnostics;
+using HotelDBLibrary;
+using HotelDBLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
-
-namespace WebApplication1.Controllers;
+using Microsoft.AspNetCore.Http;
 
 public class HomeController : Controller
 {
+    private readonly GuestManager _guestManager;
     private readonly HotelDbContext _context;
 
-    public HomeController(HotelDbContext context)
+    public HomeController(GuestManager guestManager, HotelDbContext context)
     {
+        _guestManager = guestManager;
         _context = context;
     }
 
     public async Task<IActionResult> Index()
     {
-        var rooms = await _context.Rooms.Where(r => r.IsAvailable).ToListAsync();
-        return View(rooms); // ✅ You must pass the model here
+        var guestTlf = HttpContext.Session.GetString("GuestTlf");
+
+        if (!string.IsNullOrEmpty(guestTlf))
+        {
+            var guest = await _guestManager.GetGuestByTlfAsync(guestTlf);
+            ViewBag.Guest = guest;
+        }
+
+        var rooms = await _context.Rooms.ToListAsync();
+        return View(rooms);
     }
 }

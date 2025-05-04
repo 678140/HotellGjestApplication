@@ -1,7 +1,8 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using WebApplication1.Models
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+﻿@using Microsoft.AspNetCore.Http
+@{
+    var guestTlf = Context.Session.GetString("GuestTlf");
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,24 +29,23 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    @if (SignInManager.IsSignedIn(User))
+                    @if (!string.IsNullOrEmpty(guestTlf))
                     {
                         <li class="nav-item">
-                            <span class="navbar-text">Hello, @UserManager.GetUserName(User)!</span>
+                            <span class="navbar-text">Welcome, @guestTlf</span>
                         </li>
                         <li class="nav-item">
-                            <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
-                                <button type="submit" class="nav-link btn btn-link">Logout</button>
-                            </form>
+                            <a class="nav-link" href="@Url.Action("Logout", "Account")">Logout</a>
                         </li>
                     }
                     else
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                            <a class="nav-link" href="@Url.Action("Login", "Account")">Login</a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+                            <a class="nav-link" href="@Url.Action("Register", "Account")">Register</a>
                         </li>
                     }
                 </ul>

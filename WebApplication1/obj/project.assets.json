@@ -1680,6 +1680,19 @@
             "rid": "win"
           }
         }
+      },
+      "HotelDBLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4"
+        },
+        "compile": {
+          "bin/placeholder/HotelDBLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HotelDBLibrary.dll": {}
+        }
       }
     }
   },
@@ -4874,10 +4887,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "HotelDBLibrary/1.0.0": {
+      "type": "project",
+      "path": "../../../OneDrive/Skrivebord/HotelDBLibrary/HotelDBLibrary.csproj",
+      "msbuildProject": "../../../OneDrive/Skrivebord/HotelDBLibrary/HotelDBLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "HotelDBLibrary >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.4",
@@ -4913,7 +4932,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\buida\\OneDrive\\Skrivebord\\HotelDBLibrary\\HotelDBLibrary.csproj": {
+              "projectPath": "C:\\Users\\buida\\OneDrive\\Skrivebord\\HotelDBLibrary\\HotelDBLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

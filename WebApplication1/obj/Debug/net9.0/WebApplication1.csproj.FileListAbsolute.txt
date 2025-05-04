@@ -234,3 +234,6 @@ C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\obj\Debug\net9.0\re
 C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.pdb
 C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.genruntimeconfig.cache
 C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\obj\Debug\net9.0\ref\WebApplication1.dll
+C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.sourcelink.json
+C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\bin\Debug\net9.0\HotelDBLibrary.dll
+C:\Users\buida\RiderProjects\WebApplication1\WebApplication1\bin\Debug\net9.0\HotelDBLibrary.pdb

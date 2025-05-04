@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Room>
 
 <h2>Available Rooms</h2>
+
 <table class="table">
     <thead>
     <tr>
@@ -14,11 +15,14 @@
     @foreach (var room in Model)
     {
         <tr>
-            <td>@room.NumberOfBeds</td>
-            <td>@room.Size</td>
-            <td>@room.Quality</td>
+            <td>@room.NumOfBeds</td>
+            <td>@room.Type</td>
             <td>
-                <a href="@Url.Action("Book", "Rooms", new { id = room.RoomId })" class="btn btn-primary">Book</a>
+                <a href="@Url.Action("Book", "Rooms", new { id = room.Id })" class="btn btn-primary">Book</a>
+                <a href="@Url.Action("Register", "Account")">Register</a>
+                <a href="@Url.Action("Login", "Account")">Login</a>
+
+
             </td>
         </tr>
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HotelDBLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Services;
 
@@ -11,9 +12,17 @@ public class Startup
         Configuration = configuration;
     }
 
-    public void ConfigureServices(IServiceCollection services)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        services.AddDbContext<HotelDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("HotelDb")));
+        // Use routing and map controllers
+        app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+            // Default route (you may have other routes if needed)
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
     }
 }
