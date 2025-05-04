@@ -18,7 +18,7 @@ public class RoomsController : Controller
     public async Task<IActionResult> Index()
     {
         var rooms = await _context.Rooms.ToListAsync();
-        return View(model: rooms);
+        return View(rooms);
     }
 
     // GET: Rooms/Book/5
@@ -88,15 +88,11 @@ public class RoomsController : Controller
             return NotFound();
         }
 
-        // Pass the reservation to the view for display
         return View(reservation);
-        
-        if (reservation.Start < new DateTime(1753, 1, 1) || reservation.End < new DateTime(1753, 1, 1))
-        {
-            ModelState.AddModelError("", "Start and End dates must be after 01.01.1753.");
-            return View(reservation);
-        }
-
+    }
+    public IActionResult ConfirmAndRedirect()
+    {
+        return RedirectToAction("Index", "Home"); // Redirect to Home/Index after confirmation
     }
 }
 
