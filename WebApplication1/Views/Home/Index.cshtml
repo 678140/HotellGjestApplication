@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Room>
+
+<h2>Available Rooms</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Number of Beds</th>
+        <th>Size (m²)</th>
+        <th>Quality</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var room in Model)
+    {
+        <tr>
+            <td>@room.NumberOfBeds</td>
+            <td>@room.Size</td>
+            <td>@room.Quality</td>
+            <td>
+                <a href="@Url.Action("Book", "Rooms", new { id = room.RoomId })" class="btn btn-primary">Book</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
