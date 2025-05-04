@@ -54,21 +54,23 @@ public class AccountController : Controller
         };
         return View(model);
     }
-   
+
     [HttpPost]
     public async Task<IActionResult> Login(string tlf, string password)
     {
         var guest = await _guestManager.GetGuestByTlfAsync(tlf);
 
-        if (guest != null && guest.Passord == password)  // Compare passwords directly (in plain text)
+        if (guest != null && guest.Passord == password)
         {
             // Set guest in session
             HttpContext.Session.SetString("GuestTlf", guest.Tlf);
-            return RedirectToAction("Index", "Home");  // Redirect to a secure page after login
+            return RedirectToAction("Index", "Home"); // Redirect to a secure page after login
         }
-
-        ModelState.AddModelError("", "Invalid login attempt.");
-        return View();  // Show login page again with error
+        else
+        {
+            ModelState.AddModelError("", "Invalid login attempt.");
+            return View(); 
+        }
     }
 
     // Logout action: Clear guest from session
