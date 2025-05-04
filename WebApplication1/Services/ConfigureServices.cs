@@ -14,12 +14,12 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        // Use routing and map controllers
+        
         app.UseRouting();
 
         app.UseEndpoints(endpoints =>
         {
-            // Default route (you may have other routes if needed)
+            
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

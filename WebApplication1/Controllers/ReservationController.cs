@@ -16,20 +16,20 @@ public class ReservationsController : Controller
     // GET: Reservations
     public async Task<IActionResult> MyReservations()
     {
-        // Get the guest's phone number from session
+        // Får gjest sin tlf nr.
         var guestTlf = HttpContext.Session.GetString("GuestTlf");
 
         if (string.IsNullOrEmpty(guestTlf))
         {
-            return RedirectToAction("Login", "Account");  // If no guest is logged in, redirect to login
+            return RedirectToAction("Login", "Account");  
         }
 
-        // Get the list of reservations made by this guest (filter by Tlf)
+        // Få reservasjoner
         var reservations = await _context.Reservations
-            .Where(r => r.Guest.Tlf == guestTlf)  // Filter by guest's phone number
-            .Include(r => r.Room)  // Optionally include room details
+            .Where(r => r.Guest.Tlf == guestTlf)  
+            .Include(r => r.Room)  
             .ToListAsync();
 
-        return View(reservations);  // Pass the reservations to the view
+        return View(reservations);  
     }
 }

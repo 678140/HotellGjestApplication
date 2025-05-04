@@ -4,17 +4,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Load config
+
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-// Register the HotelDbContext for your data models
+
 builder.Services.AddDbContext<HotelDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("HotelDb")));
 
-// Register custom GuestManager to manage guest-related operations
+
 builder.Services.AddScoped<GuestManager>();
 
-// Register session for manual authentication management
+
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {

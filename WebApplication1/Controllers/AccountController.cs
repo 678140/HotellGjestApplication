@@ -64,7 +64,7 @@ public class AccountController : Controller
         {
             // Set guest in session
             HttpContext.Session.SetString("GuestTlf", guest.Tlf);
-            return RedirectToAction("Index", "Home"); // Redirect to a secure page after login
+            return RedirectToAction("Index", "Home"); 
         }
         else
         {
@@ -73,10 +73,10 @@ public class AccountController : Controller
         }
     }
 
-    // Logout action: Clear guest from session
+    
     public IActionResult Logout()
     {
-        HttpContext.Session.Clear();  // Clear session data
+        HttpContext.Session.Clear();  
         return RedirectToAction("Index", "Home");
     }
 }

@@ -9,7 +9,7 @@ public class RoomsController : Controller
 
 {
     private readonly HotelDbContext _context;
-    private readonly GuestManager _guestManager;  // Declare the GuestManage
+    private readonly GuestManager _guestManager;  
 
     public RoomsController(HotelDbContext context, GuestManager guestManager)
     {
@@ -24,7 +24,7 @@ public class RoomsController : Controller
         return View(rooms);
     }
 
-    // GET: Rooms/Book/5
+    // GET: Rooms/Book/
     public async Task<IActionResult> Book(int? id)
     {
         if (id == null)
@@ -38,24 +38,24 @@ public class RoomsController : Controller
             return NotFound();
         }
 
-        // Get the guest's phone number from session
+        
         var guestTlf = HttpContext.Session.GetString("GuestTlf");
         if (string.IsNullOrEmpty(guestTlf))
         {
-            return RedirectToAction("Login", "Account");  // If no guest, redirect to login
+            return RedirectToAction("Login", "Account");  
         }
 
-        // Create an empty reservation with the room details
+        
         var reservation = new Reservation
         {
             RoomId = room.Id,
-            // Optionally, if you need more details, add them here
+           
         };
 
         return View(reservation);
     }
 
-    // POST: Rooms/Book/5
+    // POST: Rooms/Book/
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Book(int id, [Bind("GuestId, Start, End, NumberOfGuests")] Reservation reservation)
@@ -78,7 +78,7 @@ public class RoomsController : Controller
             }
 
             reservation.RoomId = room.Id;
-            reservation.GuestId = guest.Tlf;  // Link the reservation to the correct guest
+            reservation.GuestId = guest.Tlf;  
 
             // Save the reservation
             _context.Add(reservation);
@@ -90,7 +90,7 @@ public class RoomsController : Controller
         return View(reservation);
     }
 
-    // GET: ReservationConfirmation/5
+    // GET: ReservationConfirmation/
     public async Task<IActionResult> ReservationConfirmation(int id)
     {
         var reservation = await _context.Reservations.FindAsync(id);
@@ -103,7 +103,7 @@ public class RoomsController : Controller
     }
     public IActionResult ConfirmAndRedirect()
     {
-        return RedirectToAction("Index", "Home"); // Redirect to Home/Index after confirmation
+        return RedirectToAction("Index", "Home"); 
     }
 }
 
