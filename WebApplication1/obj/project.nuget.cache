@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RTJOoN0qvAY=",
+  "dgSpecHash": "DN2uEOlotHg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\buida\\RiderProjects\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\buida\\Desktop\\Prosjekt\\HotellGjestApplication\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\buida\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\buida\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -1680,19 +1680,6 @@
             "rid": "win"
           }
         }
-      },
-      "HotelDBLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4"
-        },
-        "compile": {
-          "bin/placeholder/HotelDBLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/HotelDBLibrary.dll": {}
-        }
       }
     }
   },
@@ -4887,16 +4874,10 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "HotelDBLibrary/1.0.0": {
-      "type": "project",
-      "path": "../../../OneDrive/Skrivebord/HotelDBLibrary/HotelDBLibrary.csproj",
-      "msbuildProject": "../../../OneDrive/Skrivebord/HotelDBLibrary/HotelDBLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "HotelDBLibrary >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.4",
@@ -4910,33 +4891,31 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\buida\\RiderProjects\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\buida\\Desktop\\Prosjekt\\HotellGjestApplication\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\buida\\RiderProjects\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\buida\\Desktop\\Prosjekt\\HotellGjestApplication\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\buida\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\buida\\RiderProjects\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\buida\\Desktop\\Prosjekt\\HotellGjestApplication\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\buida\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {
-            "C:\\Users\\buida\\OneDrive\\Skrivebord\\HotelDBLibrary\\HotelDBLibrary.csproj": {
-              "projectPath": "C:\\Users\\buida\\OneDrive\\Skrivebord\\HotelDBLibrary\\HotelDBLibrary.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -4995,7 +4974,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\buida\\.dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
