@@ -25,7 +25,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\OneDrive\Skrivebord\HotelDBLibrary\HotelDBLibrary.csproj" />
+        <Reference Include="HotelDBLibrary">
+            <HintPath>libs\HotelDBLibrary</HintPath>
+            <Private>true</Private> <!-- Ensures it's copied to output -->
+        </Reference>
     </ItemGroup>
+
 
 </Project>
